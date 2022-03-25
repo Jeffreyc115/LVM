@@ -1,13 +1,23 @@
 public class PHD {
 
-    String name;
-    int size;
-
+    private String name;
+    private int size;
+    private Pv pv;
 
     public PHD (String name, int size)
     {
         this.name=name;
         this.size=size;
+    }
+
+    public void assignPv(Pv phyv)
+    {
+        pv = phyv;
+    }
+
+    public boolean hasPv()
+    {
+        return pv!=null;
     }
 
 
