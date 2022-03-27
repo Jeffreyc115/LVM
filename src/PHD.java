@@ -21,4 +21,12 @@ public class PHD {
     }
 
 
+
+    public String getName() {
+        return name;
+    }
+
+    public int getSize() {
+        return size;
+    }
 }

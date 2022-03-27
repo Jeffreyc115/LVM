@@ -1,0 +1,69 @@
+PHD class, Constructor that takes a name and a size
+Method to assign and check if PHD has a Pv.
+Getter methods for name and size
+
+Power class (Super Class)
+with variables name, uuid, and storage
+Constructor that takes name and storage and creates an uuid
+Getter methods for name, uuid, and storage
+Setter methods for storage and name
+
+PV (Physical Volume) Extends power CLass
+Private Object variables PHD and VG for the Hard Drives and Volume groups
+Public Constructor using the super class constructor and sets drive to drive size given.
+Getter method for the Drive size and Volume group
+Boolean to check if the Physical volume has a volume group
+Tostring method that returns the name
+
+VG Class that extends power
+Private int for Storage used
+ArrayLists of physical volumes and logical volumes
+Constructor for a Volume Group object with parameters Name and physical volume object
+Uses the super class constructor for the name and the size of the physical volume parameter object size
+Creates a new arrayList For logical volumes and physical volumes
+Sets the storage used in the volume group object to 0, adds the new physical volume to the Physical volume array List
+Getter method for the amount of storage used, void method to extend Vg with a pv object and increases the storage in the object by adding the size of the new Physical volume to the Volume group
+Voolean method to add a new Logical Volume, if the logical volume is larger than the amount of space available, returns false, otherwise returns true and adds it to the arraylist.
+Getter methods for the Logical Volume and Physical Volume arrayLists.
+
+Logical Volume Class that extends power
+Private Object variable created
+Public constructor that creates a new Logical Volume object with parameters name, storage, and the volume group it’s associated with
+Uses the super class constructor and sets the volumegroup to the parameter Volumegroup given.
+
+
+
+
+
+Boss class to manage the connections between all the class
+Imports all methods, including the Hashing method
+Creates a new Hashmap for the Logical Volumes, physical volumes, volume groups and physical hard drives with accepting a string and referencing to the object
+Public boss constructor with no parameters that initializses all 4 of the previously stated Hash methods
+Boolean Install drives method that returns false if the PHD list already contains that Physical hard drive so that we dont have a copy, else puts a new PHD object into the PHD list and returns true
+ListDrives method which goes through the map and for each value gets the object and prints it’s name and size
+PvCreate
+Crates a physical drive with the parameters name and Drive name (The physical drive it is associated with)
+Sets a temporary object variable as the drive mapped from phdlist
+If there is no such phd, the boolean returns false
+If the phd already has a physical volume it also returns false
+Creates a new Physical vault object if both conditions are passed and puts it in the physical volume list and returns true.
+VGcreate boolean method which takes a name for the volume group and a physical vault
+Creates a temporary physical vault object that is retried from the physical vault list
+Checks if the physical volume already has a volume group or if it’s in the list, if both conditions are passed it creates a new volume group taking in the parameter VG given and the physical referenced from the physical vault list
+ Added the volume group to the volume group list and returns true.
+VG extend boolean method
+Temporary variable to map the given name to the actual object in the list, if the object is empty then it returns false, pulls volume group from the volume group list and also checks if it is empty and return false if so. If both conditions are passed it returns true and extends the volume group with the physical vault given.
+Void method volume group list lists every volume group in the format specified.
+LvCreate creates a new logical volume given the name, size, and the volume group it’s meant to be associated with. Checks if the volume group exists and returns false if it doesnt. Creates a new Logical Volume object with the parameters and attempts to add it to the Volume group awith a method created in Volume Group, if it’s unable to the Volume group doesn’t have enough space and returns false, otherwise it adds the Logical Volume to the volume group and puts the Logical Volume in the logical volume list.
+Lvlist
+Lists all the logical Volumes
+Physical Volume list
+Lists all the Physical volumes in the Physical Volume list
+
+
+
+Runner Class
+Asks the user for the action they want to do
+Splits the user input into an array and takes sections each portion for easier use
+Checks the first section which specifies the action and calls the corresponding function associated with it and calls the other sections if necessary and uses them as parameters for the methods.
+Closes the scanner.

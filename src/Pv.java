@@ -2,8 +2,8 @@ public class Pv extends Power{
     private PHD drive;
     private VG volumeGroup;
 
-    public Pv(String name, String uuid, int storage, PHD drive) {
-        super(name, uuid, storage);
+    public Pv(String name,  PHD drive) {
+        super(name, drive.getSize());
         this.drive = drive;
     }
 
@@ -19,5 +19,8 @@ public class Pv extends Power{
     public boolean hasVg()
     {
         return volumeGroup != null;
+    }
+    public String toString(){
+        return getName();
     }
 }
