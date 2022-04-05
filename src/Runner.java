@@ -7,7 +7,7 @@ public class Runner {
 
         String input = scan.nextLine();
         String[] insert = input.split(" ");
-        while (insert[0] != "end") {
+        while(! (insert[0] .equals("end") )) {
             if (insert[0].equals("install-drive")) {
                 if (manager.installDrive(insert[1], Integer.parseInt(insert[2])) == false) System.out.println("ERROR");
                 else System.out.println("Drive Installion Successful");
