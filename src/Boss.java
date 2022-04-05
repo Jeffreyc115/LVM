@@ -76,7 +76,7 @@ public boolean lvCreate(String lvName,int size,String vgName) {
        for (Map.Entry<String,VG> entry: vgList.entrySet()){
            VG vg = entry.getValue();
            for (Lv lv: vg.getLvs()){
-               System.out.println(lv.getName()+ ": ["+ lv.getStorage() + "] [" + vg.getName()+ "] [" +lv.getUuid() + "]");
+               System.out.println(lv.getName()+ ": ["+ lv.getStorage() + "G] [" + vg.getName()+ "] [" +lv.getUuid() + "]");
            }
 
        }
